@@ -1,0 +1,12 @@
+services:
+  mysql:
+    platform: linux/x86_64
+    image: mysql:latest
+    environment:
+      MYSQL_USER: sidd88
+      MYSQL_PASSWORD: sidd88
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 13306:13306
+    volumes:
+      - ./data/mysql:/docker-entrypoint-initdb.d
