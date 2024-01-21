@@ -1,0 +1,17 @@
+{
+  "name": "sidd88-web-main",
+  "version": "1.0.0",
+  "description": "sidd88 frontend",
+  "main": "index.js",
+  "scripts": {
+    "build":       "npx tailwindcss -i base.css -o ../../src/main/resources/static/site/main.css        ",
+    "build.watch": "npx tailwindcss -i base.css -o ../../src/main/resources/static/site/main.css --watch",
+    "build.prod":  "npx tailwindcss -i base.css -o ../../src/main/resources/static/site/main.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4"
+  }
+}

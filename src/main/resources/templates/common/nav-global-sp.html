@@ -1,0 +1,41 @@
+<!--
+  ~ Copyright (c) 2024 sidd88. All Rights Reserved.
+  ~
+  ~ For the full copyright and license information,
+  ~ please view the LICENSE file that was distributed with this source code.
+  -->
+
+<div class="sm:hidden h-16 px-4">
+  <div class="w-full h-full flex items-center justify-between">
+    <button onclick="document.getElementById('dropdown-menu').classList.toggle('left-full');">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-sky-500">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
+    <div th:replace="~{common/nav-item-action}"></div>
+  </div>
+
+  <!-- Nav Logo -->
+  <div class="absolute top-0 left-0 right-0 mx-auto w-1/2 h-full flex items-center justify-center">
+    <h1 th:replace="~{common/nav-item-logo}"></h1>
+  </div>
+
+  <!-- Drop down menu -->
+  <div id="dropdown-menu" class="absolute top-16 left-full w-full bg-white bg-opacity-75">
+    <!-- Menu template -->
+    <ul th:remove="all">
+      <li class="flex justify-center m-2" th:fragment="menuItem(title, link, active)">
+        <label>
+          <a class="text-base" th:href="@{__${link}__}" th:text="${title}" th:classappend="${active ? 'text-sky-500 font-semibold' : 'text-neutral-700'}">
+          </a>
+        </label>
+      </li>
+    </ul>
+
+    <ul class="flex flex-col w-full h-full">
+      <th:block th:each="item: ${vv.menuItems}">
+        <li th:replace="~{::menuItem(${item.label}, ${item.link}, ${vv.isActiveMenu(item)})}"></li>
+      </th:block>
+    </ul>
+  </div>
+</div>

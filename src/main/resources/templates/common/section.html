@@ -1,0 +1,12 @@
+<!--
+  ~ Copyright (c) 2024 sidd88. All Rights Reserved.
+  ~
+  ~ For the full copyright and license information,
+  ~ please view the LICENSE file that was distributed with this source code.
+  -->
+
+<th:block th:fragment="section(id, content)">
+  <section th:id="${id}" class="w-full sm:w-content relative m-auto">
+    <th:block th:insert="${content}"/>
+  </section>
+</th:block>

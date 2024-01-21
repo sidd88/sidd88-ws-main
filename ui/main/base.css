@@ -1,0 +1,21 @@
+/*
+ * Copyright (c) 2024 sidd88. All Rights Reserved.
+ *
+ * For the full copyright and license information,
+ * please view the LICENSE file that was distributed with this source code.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/** Css base */
+@layer base {
+  body {
+    @apply text-neutral-700;
+  }
+
+  main {
+    @apply mt-16 overflow-hidden;
+  }
+}
