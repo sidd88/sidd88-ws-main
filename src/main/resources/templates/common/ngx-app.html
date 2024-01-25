@@ -1,0 +1,39 @@
+<!--
+  ~ Copyright (c) 2024 sidd88. All Rights Reserved.
+  ~
+  ~ For the full copyright and license information,
+  ~ please view the LICENSE file that was distributed with this source code.
+  -->
+
+<th:block th:fragment="layout(content, id)">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title th:text="${vv.title}"></title>
+  <meta charset="UTF-8">
+  <meta name="viewport"              content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type"    content="text/html; charset=UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <link rel="icon" type="image/ico" href="favicon.png">
+  <link rel="stylesheet" href="/site/main.css" />
+  <link rel="stylesheet" href="/ngx/app/styles.css" />
+</head>
+<body>
+<!--Global Navigation-->
+<div th:replace="~{common/nav-global}"></div>
+
+<!--Main Content-->
+<main id="ngx-app">
+  <ngx-app-root></ngx-app-root>
+</main>
+
+<!--Global Footer-->
+<div th:replace="~{common/nav-footer}"></div>
+
+<script src="/ngx/app/runtime.js" type="module"></script>
+<script src="/ngx/app/polyfills.js" type="module"></script>
+<script src="/ngx/app/main.js" type="module"></script>
+</body>
+</html>
+</th:block>

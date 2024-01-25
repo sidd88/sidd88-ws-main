@@ -8,6 +8,7 @@
 package me.sidd88.controller.site
 
 import me.sidd88.model.site.SiteViewPost
+import me.sidd88.model.site.SiteViewPostNew
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -23,5 +24,12 @@ class PostController {
     val vv = SiteViewPost.build()
     model.addAttribute("vv", vv)
     return "post/main"
+  }
+
+  @GetMapping("/posts/new")
+  fun new(model: Model): String {
+    val vv = SiteViewPostNew.build()
+    model.addAttribute("vv", vv)
+    return "common/ngx-app"
   }
 }
