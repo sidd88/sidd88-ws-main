@@ -5,6 +5,10 @@
   ~ please view the LICENSE file that was distributed with this source code.
   -->
 
-<th:block th:replace="~{common/layout :: layout(~{:: content}, 'site-post')}">
-  <content th:remove="tag">Posts page content</content>
+<th:block th:replace="~{common/layout :: layout(~{:: content}, 'site-post-list')}">
+  <content th:remove="tag">
+
+    <!--  Content section -->
+    <div th:replace="~{post/list/content}"></div>
+  </content>
 </th:block>

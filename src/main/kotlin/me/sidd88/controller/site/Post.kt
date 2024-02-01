@@ -7,29 +7,30 @@
 
 package me.sidd88.controller.site
 
-import me.sidd88.model.site.SiteViewPost
-import me.sidd88.model.site.SiteViewPostNew
+import me.sidd88.model.site.SiteViewPostList
+import me.sidd88.service.PostService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
 
 /**
  * Posts Page
  */
 @Controller
-class PostController {
+@RequestMapping("/posts")
+class PostController(
+  private val postService: PostService
+) {
 
-  @GetMapping("/posts")
-  fun view(model: Model): String {
-    val vv = SiteViewPost.build()
+  /**
+   * Post list
+   */
+  @GetMapping
+  fun list(model: Model): String {
+    val posts = postService.getPostList()
+    val vv    = SiteViewPostList.build(posts)
     model.addAttribute("vv", vv)
-    return "post/main"
-  }
-
-  @GetMapping("/posts/new")
-  fun new(model: Model): String {
-    val vv = SiteViewPostNew.build()
-    model.addAttribute("vv", vv)
-    return "common/ngx-app"
+    return "post/list/main"
   }
 }
